@@ -6,7 +6,7 @@ export function createEarth(textureLoader,sunLight) {
     const nightTexture = textureLoader.load('textures/earthlights4k.jpg');
 
     // Sphere Geometry
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
+    const geometry = new THREE.IcosahedronGeometry(1, 16);
 
     // Custom Shader Material
     const material = new THREE.ShaderMaterial({
@@ -49,7 +49,7 @@ export function createEarth(textureLoader,sunLight) {
     const earth = new THREE.Mesh(geometry, material);
 
     // Apply axial tilt
-    earth.rotation.z = THREE.MathUtils.degToRad(23.5);
+    earth.rotation.z = THREE.MathUtils.degToRad(-23.5);
 
     return earth;
 }
