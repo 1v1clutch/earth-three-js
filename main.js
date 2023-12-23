@@ -19,8 +19,13 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+
+// Sun light
+const sunLight = createLights();
+scene.add(sunLight);
+
 // Earth
-const earth = createEarth(textureLoader); // Assuming createEarth doesn't need any arguments
+const earth = createEarth(textureLoader,sunLight); // Assuming createEarth doesn't need any arguments
 scene.add(earth);
 
 // OrbitControls

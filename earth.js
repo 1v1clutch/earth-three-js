@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export function createEarth(textureLoader) {
+export function createEarth(textureLoader,sunLight) {
     // Load textures
     const dayTexture = textureLoader.load('textures/earthmap4k.jpg');
     const nightTexture = textureLoader.load('textures/earthlights4k.jpg');
@@ -13,7 +13,7 @@ export function createEarth(textureLoader) {
         uniforms: {
             dayTexture: { type: 't', value: dayTexture },
             nightTexture: { type: 't', value: nightTexture },
-            sunDirection: { type: 'v3', value: new THREE.Vector3() }
+            sunDirection: { type: 'v3', value: sunLight.position }
         },
         vertexShader: `
             varying vec2 vUv;
